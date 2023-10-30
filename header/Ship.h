@@ -3,23 +3,35 @@
 
 #include <iostream>
 
+#include <vector>
+
 using namespace std;
 
 class Ship {
 private:
     char type;
-    int size;
+    int length, width;
     int hitCount;
-    Ship(char type, int size);
+    Ship(char type, int length, int width);
 
 public:
-    int getSizeLength() const;
+    char getType() const;
 
-    int getSizeWidth() const;
+    void setType(char type);
 
-    void setSizeLength(int sizeLength);
+    int getLength() const;
 
-    void setSizeWidth(int sizeWidth);
+    void setLength(int length);
+
+    int getWidth() const;
+
+    void setWidth(int width);
+
+    int getSize();
+
+    int getHitCount() const;
+
+    void incrementHitCount();
 };
 
 

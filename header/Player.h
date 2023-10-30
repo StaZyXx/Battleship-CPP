@@ -19,6 +19,6 @@ public:
     vector<vector<char>> shotsBoard;
     vector<Ship> ships;
     void setPlayerName(string n);
-    string getPlayerName(void);
+    string getPlayerName();
 };
 #endif //BATTLESHIP_PLAYER_H

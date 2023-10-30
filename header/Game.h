@@ -14,6 +14,13 @@ public:
     void playTurn(Player& currentPlayer, Player& opponent);
     void localOneVsOneMode();
 
+    const Player &getPlayer1() const;
+
+    void setPlayer1(const Player &player1);
+
+    const Player &getPlayer2() const;
+
+    void setPlayer2(const Player &player2);
 };
 
 
