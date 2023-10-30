@@ -7,8 +7,11 @@ using namespace std;
 
 class Ship {
 private:
-    int sizeLength;
-    int sizeWidth;
+    char type;
+    int size;
+    int hitCount;
+    Ship(char type, int size);
+
 public:
     int getSizeLength() const;
 
