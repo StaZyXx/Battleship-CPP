@@ -10,22 +10,15 @@ using namespace std;
 class Ship {
 private:
     char type;
-    int length, width;
+    int size;
     int hitCount;
-    Ship(char type, int length, int width);
+public:
+    Ship(char type, int size);
 
 public:
     char getType() const;
 
     void setType(char type);
-
-    int getLength() const;
-
-    void setLength(int length);
-
-    int getWidth() const;
-
-    void setWidth(int width);
 
     int getSize();
 
