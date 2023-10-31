@@ -11,4 +11,4 @@ add_executable(Battleship main.cpp
         cpp/Player.cpp
         header/Player.h
         cpp/Game.cpp
-        header/Game.h header/Game.h cpp/Location.cpp header/Location.h)
+        header/Game.h header/Game.h)
