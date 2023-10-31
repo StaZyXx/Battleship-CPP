@@ -10,7 +10,7 @@ class Player {
 private:
     string playerName;
 public:
-    Player();
+    explicit Player(string playerName);
     void placeShips();
     bool isAllShipsSunk();
     void displayBoard();

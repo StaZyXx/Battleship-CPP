@@ -7,20 +7,13 @@ using namespace std;
 
 class Game {
 private:
-    Player player1;
-    Player player2;
+    Player player1 = Player("Player 1");
+    Player player2 = Player("Player 2");
 public:
+    Game();
     void start();
     void playTurn(Player& currentPlayer, Player& opponent);
     void localOneVsOneMode();
-
-    const Player &getPlayer1() const;
-
-    void setPlayer1(const Player &player1);
-
-    const Player &getPlayer2() const;
-
-    void setPlayer2(const Player &player2);
 };
 
 

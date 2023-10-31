@@ -1,37 +1,16 @@
 #include "../header/Ship.h"
 
-Ship::Ship(char type, int length, int width) {
+Ship::Ship(char type, int size) {
     this->type = type;
-    this->length = length;
-    this->width = width;
+    this->size = size;
 }
 
 char Ship::getType() const {
     return type;
 }
 
-void Ship::setType(char type) {
-    Ship::type = type;
-}
-
-int Ship::getLength() const {
-    return length;
-}
-
-void Ship::setLength(int length) {
-    Ship::length = length;
-}
-
-int Ship::getWidth() const {
-    return width;
-}
-
-void Ship::setWidth(int width) {
-    Ship::width = width;
-}
-
 int Ship::getSize() {
-    return this->length * this->width;
+    return size;
 }
 
 int Ship::getHitCount() const {
@@ -39,5 +18,5 @@ int Ship::getHitCount() const {
 }
 
 void Ship::incrementHitCount() {
-    Ship::hitCount++;
+    hitCount += 1;
 }

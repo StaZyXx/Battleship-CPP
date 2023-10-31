@@ -11,9 +11,7 @@ class Ship {
 private:
     char type;
     int size;
-    int hitCount;
-public:
-    Ship(char type, int size);
+    int hitCount = 0;
 
 public:
     char getType() const;
@@ -25,6 +23,8 @@ public:
     int getHitCount() const;
 
     void incrementHitCount();
+
+    Ship(char type, int size);
 };
 
 

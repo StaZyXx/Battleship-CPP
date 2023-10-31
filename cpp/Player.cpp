@@ -1,29 +1,84 @@
 #include "../header/Player.h"
 
 
-Player::Player() {
-    ships[0] = Ship('A', 5);
-    ships[1] = Ship('B', 4);
-    ships[2] = Ship('C', 3);
-    ships[3] = Ship('S', 3);
-    ships[4] = Ship('D', 2);
-}
+Player::Player(string playerName) {
+    this->playerName = playerName;
+    Ship airCraft('A', 5);
+    Ship battleShip('B', 4);
+    Ship cruiser('C', 3);
+    Ship submarine('S', 3);
+    Ship destroyer('D', 2);
+
+    ships.push_back(airCraft);
+    ships.push_back(battleShip);
+    ships.push_back(cruiser);
+    ships.push_back(submarine);
+    ships.push_back(destroyer);
+
+    for (int i = 0; i < 10; i++) {
+        vector<Case> row;
+        for (int j = 0; j < 10; j++) {
+            Case c;
+            c.setChar('.');
+            row.push_back(c);
+        }
+        ownBoard.push_back(row);
+    }
+
+    for (int i = 0; i < 10; i++) {
+        vector<char> row;
+        for (int j = 0; j < 10; j++) {
+            row.push_back('.');
+        }
+        shotsBoard.push_back(row);
+    }
+};
 
 void Player::placeShips() {
-    for (int i = 0; i < 5; i++) {
+
+    // Place default ships
+
+    int i = 0;
+    for (Ship item: ships) {
+        for (int j = 0; j < item.getSize(); j++) {
+            ownBoard[j][i].setShip(&item);
+            ownBoard[j][i].setChar(item.getType());
+        }
+        i++;
+    }
+
+
+    /*for (int i = 0; i < 5; i++) {
         int x, y;
         char orientation;
         cout << "Enter the coordinates of the ship " << i + 1 << " (size: " << ships[i].getSize() << "): ";
         cin >> x >> y;
         cout << "Enter the orientation of the ship " << i + 1 << " (h for horizontal, v for vertical): ";
         cin >> orientation;
-
         if (orientation == 'h') {
+            // Check if already a ship in the way
+            for (int j = 0; j < ships[i].getSize(); j++) {
+                if (ownBoard[x][y + j].getChar() != '.') {
+                    cout << "There is already a ship in the way" << endl;
+                    i--;
+                    break;
+                }
+            }
+
             for (int j = 0; j < ships[i].getSize(); j++) {
                 ownBoard[x][y + j].setShip(&ships[i]);
                 ownBoard[x][y + j].setChar(ships[i].getType());
             }
         } else if (orientation == 'v') {
+            // Check if already a ship in the way
+            for (int j = 0; j < ships[i].getSize(); j++) {
+                if (ownBoard[x + j][y].getChar() != '.') {
+                    cout << "There is already a ship in the way" << endl;
+                    i--;
+                    break;
+                }
+            }
+
             for (int j = 0; j < ships[i].getSize(); j++) {
                 ownBoard[x + j][y].setShip(&ships[i]);
                 ownBoard[x + j][y].setChar(ships[i].getType());
@@ -33,7 +88,8 @@ void Player::placeShips() {
             i--;
         }
 
-    }
+        displayBoard();
+    }*/
 }
 
 bool Player::isAllShipsSunk() {
